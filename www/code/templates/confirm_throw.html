@@ -1,0 +1,40 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="/static/main.css" /> 
+</head>
+<div width="100%" height="100%" align="center">
+	<div class="headerbg">
+		<div class="header">
+		</div>
+	</div>
+</div>
+<h1>Virtual Shmooball System</h1>
+{% if track_num == 1 %}
+  <h1>Build It!</h1>
+{% elif track_num == 2 %}
+  <h1>Break It!</h1>
+{% elif track_num == 3 %}
+  <h1>Bring it On!</h1>
+{% endif %}
+
+<h1>Balls in flight: {{ balls_in_flight }} - {{ moose_status }} </h1>
+ 
+<div class="choicebuttons">
+<form name="mooseform" action="{{ url_for('throw', track_num=track_num) }}" method='POST' id='myform'>
+<input type='hidden' name='lol' value='1'>
+</form>    
+
+<script type="text/javascript">
+function submitform()
+{
+  document.mooseform.submit();
+}
+</script>
+
+<div class="choicebuttons">
+        <div class="choicebutton"><a href="#" onclick="submitform();">LET BALLS FLY<span class="blocklink"></span></a></div>
+</div>
+
+</body>
+</html>

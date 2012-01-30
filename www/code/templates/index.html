@@ -1,0 +1,30 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}" /> 
+</head>
+<body>
+<div width="100%" height="100%" align="center">
+	<div class="headerbg">
+		<div class="header">
+		</div>
+	</div>
+<h1>Virtual Shmooball System</h1>
+<h1>Please select your current track:</h1>
+</div>
+
+<div class="choicebuttons">
+	<div class="choicebutton"><a href="{{ url_for('confirm_throw', track_num=1) }}">Build It!<span class="blocklink"></span></a></div>
+	<div class="choicebutton"><a href="{{ url_for('confirm_throw', track_num=2) }}">Break It!<span class="blocklink"></span></a></div>
+	<div class="choicebutton"><a href="{{ url_for('confirm_throw', track_num=3) }}">Bring it On!<span class="blocklink"></span></a></div>
+
+</div>
+
+<div class="footer">
+
+  Welcome back {{ session['nick'] }} <a href="{{ url_for('logout') }}">[logout]</a><br/>
+
+&copy; 2012 ShmooCon
+</div>
+</body>
+</html>

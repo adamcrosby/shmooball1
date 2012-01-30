@@ -1,0 +1,50 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="/static/main.css" /> 
+</head>
+<div width="100%" height="100%" align="center">
+	<div class="headerbg">
+		<div class="header">
+		</div>
+	</div>
+</div>
+<h1>Virtual Shmooball System</h1>
+{% if track_num == 1 %}
+  <h1>Build It!</h1>
+{% elif track_num == 2 %}
+  <h1>Break It!</h1>
+{% elif track_num == 3 %}
+  <h1>Bring it On!</h1>
+{% endif %}
+
+
+<div class="choicebuttons">
+    
+{% if fireready %}
+	<div class="choicebutton"><a href="/fire/{{ track_num }}/100">Fire ShmooBall<span class="blocklink"></span></a></div>
+	<div class="choicebutton"><a href="/fire/{{ track_num }}/20">Fire ShmooBall Really Hard<span class="blocklink"></span></a></div>
+{% else %}
+    {% if timeleft %}
+    <div class="choicebutton"><a href="/">Please Wait at least {{ MIN_SECS - timeleft|int }} seconds  until your next throw<span class="blocklink"></span></a></div>
+    {% endif %}
+{% endif %}
+</div>
+<pre style="clear: both;">
+{% if session['lastfired'] %}
+Lastfired: {{ session['lastfired'] }}
+{% else %}
+Lastfired: NEVER FIRED BEFORE
+{% endif %}
+Min Secs: {{ MIN_SECS }}
+{% if timeleft %}
+Time Left: {{ MIN_SECS - timeleft|int }}
+{% endif %}
+{% if fireready %}
+Fireready: {{ fireready }}
+{% else %}
+Fireready: {{ fireready }}
+{% endif %}
+</pre>
+</body>
+</html>
